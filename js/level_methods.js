@@ -1,6 +1,6 @@
 function replaceLevelSpriteXY(x, y, item) {
     line_nr = y / size.tile.target.h - line_offset_y
-    replaceLevelSprite(x / size.tile.target.w, line_nr, item)
+    replaceLevelSprite(x / size.tile.target.w, line_nr, item);
 }
 
 function replaceLevelSprite(pos, line, item) {
@@ -17,8 +17,10 @@ function getLevelSprite(pos, line) {
 }
 
 function getIndicesOf(searchStr, str) {
-    var startIndex = 0, searchStrLen = searchStr.length;
-    var index, indices = [];
+    var startIndex = 0;
+    var searchStrLen = searchStr.length;
+    var index;
+    var indices = [];
     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
         indices.push(index);
         startIndex = index + searchStrLen;
@@ -27,29 +29,29 @@ function getIndicesOf(searchStr, str) {
 }
 
 function getLevelSpritePositions(type) {
-    var positions = []
+    var positions = [];
     current_level.level.forEach(function (linecontent, pos_y) {
             getIndicesOf(type, linecontent).forEach(function (pos_x) {
-                    positions.push({x:pos_x, y:pos_y})
+                    positions.push({x:pos_x, y:pos_y});
                 }
             )
         }
-    )
-    return positions
+    );
+    return positions;
 }
 
 function getLastLevelSpritePosition(type, x) {
-    var pos
-    positions = getLevelSpritePositions(type)
+    var pos;
+    positions = getLevelSpritePositions(type);
     positions.sort(function (a, b) {
-        return a.x - b.x
+        return a.x - b.x;
     });
     positions.forEach(function (position) {
         if (!pos || (pos.x < position.x && position.x * size.tile.target.w <= x)) {
-            pos = position
+            pos = position;
         }
-    })
-    return pos
+    });
+    return pos;
 }
 
 var blocks = {};
@@ -115,10 +117,10 @@ function getLevelObject(character) {
 
 function prerenderLevelObjects() {
     for (char in blocks) {
-        var block = blocks[char]
-        var canvas = document.createElement('canvas')
-        canvas.width = size.tile.target.w
-        canvas.height = size.tile.target.h
+        var block = blocks[char];
+        var canvas = document.createElement('canvas');
+        canvas.width = size.tile.target.w;
+        canvas.height = size.tile.target.h;
         canvas.getContext("2d").drawImage(
             spriteMap,
             block.sx * (size.tile.source.w + 1) + 0.5,

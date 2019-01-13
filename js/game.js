@@ -8,11 +8,11 @@ var items;
 var debug = false;
 
 // default theme and level
-var theme = 'suse'
-var current_level = levels[1];
+var theme = 'ben_lisa';
+var current_level = levels[4];
 
 var gameInterval;
-var score
+var score;
 
 // position displayed level
 var scroll_x = 0;
@@ -67,7 +67,7 @@ player = {
 
 String.prototype.replaceAt = function (index, characters) {
     return this.substr(0, index) + characters + this.substr(index + characters.length);
-}
+};
 
 Number.prototype.inRange = function (a, b) {
     var n = +this;
@@ -149,12 +149,12 @@ function updateCharacters() {
             }
         }
         if (held.up && actor.speed.y == 0) {
-            sound_jump()
+            sound_jump();
             actor.speed.y -= speed.player.velocity_y;
         } else if (held.down) {
             // this only causes a duck animation, nothing happens in term of speed
         }
-        held.up = false
+        held.up = false;
 
         animate_actor(actor);
 
@@ -204,11 +204,11 @@ function updateCharacters() {
                 } else if (collides.bottom) {
                     // jump on enemy
                     if (object.type == 'enemy_mushroom') {
-                        object.deadly = false
-                        object.speed = 0
-                        object.sx = 2
+                        object.deadly = false;
+                        object.speed = 0;
+                        object.sx = 2;
                         score++;
-                        sound_jump_on_enemy()
+                        sound_jump_on_enemy();
                     }
                     actor.pos.y = object.y - actor.target_size.h;
                     actor.speed.y = 0;
@@ -231,12 +231,12 @@ function updateCharacters() {
                     levelWin()
                 }
                 if (object.type == 'trampoline') {
-                    actor.speed.y < 0 ? actor.speed.y = 0 : true
+                    actor.speed.y < 0 ? actor.speed.y = 0 : true;
                     sound_jump()
-                    actor.speed.y = -0.5 * actor.speed.y - 25
+                    actor.speed.y = -0.5 * actor.speed.y - 25;
                 }
                 if (object.type == 'coin') {
-                    items.splice(items.indexOf(object), 1)
+                    items.splice(items.indexOf(object), 1);
                     score++
                     sound_coin()
                 }
@@ -342,9 +342,9 @@ function updateElements() {
             // turn around on collide or above edge
             if ((blocks[sprite_collide] && blocks[sprite_collide].collide) ||
                 (!blocks[sprite_bottom] || !blocks[sprite_bottom].collide || blocks[sprite_bottom].deadly) || item.x <= 0) {
-                item.speed_x *= -1
+                item.speed_x *= -1;
             }
-            item.x += item.speed_x
+            item.x += item.speed_x;
 
         }
     })
@@ -355,7 +355,7 @@ function updateElements() {
 function drawControls() {
     if (debug) {
         var actor = actors[0];
-        ctx.font = '12px edunline'
+        ctx.font = '12px edunline';
         if (actor) {
             ctx.fillText("Player: x/y: " + Math.round(actor.pos.x) + "/" + Math.round(actor.pos.y) +
                 ", speed x/y: " + Math.round(actor.speed.x) + "/" + Math.round(actor.speed.y) +
@@ -363,9 +363,9 @@ function drawControls() {
         }
         ctx.fillText("Scroll: " + Math.round(scroll_x) + "px - tile#: " + Math.round(scroll_x / size.tile.target.w), size.tile.target.w, size.tile.target.h + 40);
         ctx.fillText("Objects: " + (collisionMap.length + items.length), size.tile.target.w, size.tile.target.h + 60);
-        ctx.fillText("Fps: " + (1000 / frameTime).toFixed(1), size.tile.target.w, size.tile.target.h + 80)
+        ctx.fillText("Fps: " + (1000 / frameTime).toFixed(1), size.tile.target.w, size.tile.target.h + 80);
     }
-    ctx.font = 'bold 14px edunline'
+    ctx.font = 'bold 14px edunline';
     ctx.fillText("Score: " + score, size.tile.target.w, size.tile.target.h);
     ctx.fillText(player.lives + " Lives", size.canvas.w - 3 * size.tile.target.w, size.tile.target.h);
 }
@@ -411,13 +411,13 @@ function gameOver() {
        respawnPlayer()
     } else {
         // todo: dying animation
-        actors = []
-        showGameOver()
+        actors = [];
+        showGameOver();
     }
 }
 
 function levelWin() {
-    sound_success()
+    sound_success();
     // todo:  winning animation
     actors = [];
     // todo: level done menu
@@ -426,21 +426,21 @@ function levelWin() {
 
 function initializeLevel() {
     // clone the level content so we still have the original for a restart
-    current_level.level = current_level.template.slice(0)
+    current_level.level = current_level.template.slice(0);
     current_level.width = current_level.level[0].length * size.tile.target.w;
-    items = []
-    collisionMap = []
+    items = [];
+    collisionMap = [];
     actors = [player];
-    resetPlayer()
-    scroll_x = player.pos.x - (document.documentElement.clientWidth - 4) / 2
+    resetPlayer();
+    scroll_x = player.pos.x - (document.documentElement.clientWidth - 4) / 2;
     theme = current_level.theme
 }
 
 function resetPlayer() {
-    player.lives = 3
-    score = 0
-    player.pos.x = 0
-    respawnPlayer()
+    player.lives = 3;
+    score = 0;
+    player.pos.x = 0;
+    respawnPlayer();
 }
 
 
@@ -449,26 +449,26 @@ function respawnPlayer() {
     if (startpos = getLastLevelSpritePosition('y', player.pos.x)) {
         player.pos.x = startpos.x * size.tile.target.w
         if (player.pos.x >= size.canvas.w/2) {
-            scroll_x = startpos.x * size.tile.target.w - size.canvas.w/2
+            scroll_x = startpos.x * size.tile.target.w - size.canvas.w/2;
         } else {
-            scroll_x = 0
+            scroll_x = 0;
         }
-        player.pos.y = (startpos.y + line_offset_y) * size.tile.target.h
+        player.pos.y = (startpos.y + line_offset_y) * size.tile.target.h;
     } else {
-        player.pos.x = 2 * size.tile.target.w
-        player.pos.y = 5 * size.tile.target.h
+        player.pos.x = 2 * size.tile.target.w;
+        player.pos.y = 5 * size.tile.target.h;
         scroll_x = 0
     }
-    player.speed.x = 0
-    player.speed.y = 0
+    player.speed.x = 0;
+    player.speed.y = 0;
 }
 
 function initializeTheme() {
     spriteMap.src = 'themes/' + theme + '/images/game_tiles.png';
     player.spriteMap.src = 'themes/' + theme + '/images/player_sprites.png';
-    player.sprite.x = 0
-    player.sprite.y = 32
-    preload_sounds()
+    player.sprite.x = 0;
+    player.sprite.y = 32;
+    preload_sounds();
     document.getElementById('game').style.backgroundColor = current_level.background;
     prerenderLevelObjects();
 }
@@ -489,57 +489,57 @@ function gameLoop() {
 
 function initGame() {
     window.clearInterval(gameInterval);
-    hideMenus()
-    hideControls()
+    hideMenus();
+    hideControls();
     // draw initial level for menu background
-    load_level()
-    showStartMenu()
+    load_level();
+    showStartMenu();
 }
 
 function load_level() {
-    initializeLevel()
-    initDimensions()
-    initializeTheme()
-    drawLevel()
+    initializeLevel();
+    initDimensions();
+    initializeTheme();
+    drawLevel();
 }
 
 function initDimensions() {
     // re-sizing
     var canvas = document.getElementById("game");
-    var browser_w = document.documentElement.clientWidth
-    var browser_h = document.documentElement.clientHeight
-    size.canvas.w = browser_w - 4
-    size.canvas.h = browser_h - 4
-    canvas.width = size.canvas.w
-    canvas.height = size.canvas.h
-    size.tiles.target.w = size.canvas.w / size.tile.target.w
-    size.tiles.target.h = size.canvas.h / size.tile.target.h
+    var browser_w = document.documentElement.clientWidth;
+    var browser_h = document.documentElement.clientHeight;
+    size.canvas.w = browser_w - 4;
+    size.canvas.h = browser_h - 4;
+    canvas.width = size.canvas.w;
+    canvas.height = size.canvas.h;
+    size.tiles.target.w = size.canvas.w / size.tile.target.w;
+    size.tiles.target.h = size.canvas.h / size.tile.target.h;
     // if the canvas is not high enough, cut from the upper side, if it's too high, move down
-    line_offset_y = size.canvas.h / size.tile.target.h - current_level.level.length
+    line_offset_y = size.canvas.h / size.tile.target.h - current_level.level.length;
 }
 
 
 function startGame() {
     hideMenus();
-    registerControls()
-    initializeLevel()
-    initializeTheme()
-    sound_theme()
+    registerControls();
+    initializeLevel();
+    initializeTheme();
+    sound_theme();
     window.clearInterval(gameInterval);
     gameInterval = setInterval(gameLoop, 1000 / speed.fps);
 }
 
 function restartGame() {
-    window.clearInterval(gameInterval)
-    initGame()
-    startGame()
+    window.clearInterval(gameInterval);
+    initGame();
+    startGame();
 }
 
 window.onload = function () {
     initGame();
-}
+};
 
 window.onresize = function () {
     initGame();
-}
+};
 

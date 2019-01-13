@@ -85,5 +85,47 @@ var levels = [
             "  /ü`                                                           p                   p            c      ZBZ     ",
             "88888888888@@@@@@@@@@@@@@@@@@@@@@88888888888888888888888888888888888@@8888@@@@@@@@@88888888888888888888888888888"
         ]
+    },
+    /*{
+        name:"Ben & Lisas Abenteuer Level 1",
+        theme:'ben_lisa',
+        background: '#5c94fc',
+        template:[
+            "      13           13                                                    13                                                                                                                                                                     ",
+            "      46           46      ????ßß?           13                  13             46      1223                                13                                                                    13                                     13            ",
+            "                                          46                  46                     4556                                46                      1223                                  13      46          1223                       46            ",
+            "    y                                             y                                              p                               y               4556                                  46                  4556                                     ",
+            "                        ?????????????                                                                  #########     #####?                               ###     #??#                       y                                      HH         °                ",
+            "                                                              y                                                                                                                                                        HHH        'R                ",
+            "                                                                                                                                                                                                                      HHHH         |     *          ",
+            "                         xxx                                               k          p                                                                                                                              HHHHH         |    WWW         ",
+            "                ######################### #?#?#               qw          qw                     #?#                      #        #k     ?  ?  ?      #           ##           H  H         HH  H                ##?#          HHHHHH         |    lXj         ",
+            "    ^                                     qw      as    ^     as                                                 ^                                                 HH  HH   ^   HHH  HH                            HHHHHHH     ^   |   WUUUW        ",
+            "   /ü`            ^              qw       as      as   /ü`    as        ^                                       /ü`                    ^                          HHH  HHH /ü` HHHH  HHH    ^   qw             qw HHHHHHHH    /ü`  |   XXOXX  ^     ",
+            "  /ügü`      {=} /ü`  p          as       as p{=} as p/ügü`p  as  {==} /ü`      {=}                  {=}      p/ügü`p          {==}   /ü`     /`p p  p p         HHHH==HHHHügüHHHHH  HHHH} /ü`  as   {=}   p p asHHHHHHHHH   /ügü` H   XXBXX}/ü`    ",
+            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@@xxxxxxxxxxxxxxxxx     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        ]
+    },*/
+    {
+        name:"Ben & Lisas Abenteuer Level 1",
+        theme:'ben_lisa',
+        background: '#5c94fc',
+        template:[
+         "                                                                                                                                  ",
+         "                                                                                                                                  ",
+         "                                                                                                                                  ",
+         "                                                                                                                                  ",
+         "                                                                                                   xxxxxxxxx                      ",
+         "                                                                                                  xxxxxxxxxx                      ",
+         "                                                           x                                     xxxxxxxxxxxxxx                  ",
+         "                                                          xxx                                   xxxxxxxxxxxx                      ",
+         "                                                         xxxxx                                 xxxxxxxxxxxxxxxxx                 ",
+         "                             ?????                      xxxxxxx                               xxxxxxxxxxxxxx                      ",
+         "                                                      xxxxxxxxxxx                            xxxxxxxxxxxxxxx                 ?????",
+         "                                                    xxxxxxxxxxxxxxx                        xxxxxxxxxxxxxxxxxxxxxxx                   ",
+         "x                                                 xxxxxxxxxxxxxxxxxxx                    xxxxxxxxxxxxxxxxxxx                      x",
+         "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+
+        ]
     }
 ];

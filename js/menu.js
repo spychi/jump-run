@@ -1,6 +1,6 @@
 function hideMenus() {
-    hideStartMenu()
-    hideGameOver()
+    hideStartMenu();
+    hideGameOver();
 }
 
 // Main menu
@@ -54,11 +54,23 @@ if (button = document.getElementById("button-play4")) {
     }, false);
 }
 
+if (button = document.getElementById("button-play5")) {
+    button.addEventListener('click', function (event) {
+        current_level = levels[4];
+        startGame();
+    }, false);
+
+    button.addEventListener('mouseover', function (event) {
+        current_level = levels[4];
+        load_level();
+    }, false);
+}
+
 
 var start_menu = document.getElementById("game-menu");
 
 function showStartMenu() {
-    hideControls()
+    hideControls();
     start_menu.style.visibility = "visible";
 }
 
@@ -74,14 +86,14 @@ document.getElementById("button-restart").addEventListener('click', function (ev
 }, false);
 
 document.getElementById("button-menu").addEventListener('click', function (event) {
-    initGame()
-    showStartMenu()
+    initGame();
+    showStartMenu();
 }, false);
 
 var gameover_menu = document.getElementById("game-over");
 
 function showGameOver() {
-    hideControls()
+    hideControls();
     gameover_menu.style.visibility = "visible";
 }
 
