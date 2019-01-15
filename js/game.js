@@ -26,7 +26,9 @@ var collisionMap;
 
 // fps measurement
 var filterStrength = 20;
-var frameTime = 0, lastLoop = new Date, thisLoop;
+var frameTime = 0;
+var lastLoop = new Date;
+var thisLoop;
 
 
 // speed, gravity parameters
@@ -87,18 +89,18 @@ function drawLevel() {
     }
     scroll_x_start = scroll_x;
     // first tile to display:
-    var index_x_start = scroll_x / size.tile.target.w
-    var offset_x = scroll_x % size.tile.target.w
+    var index_x_start = scroll_x / size.tile.target.w;
+    var offset_x = scroll_x % size.tile.target.w;
     // last tile to show
-    var index_x_max = index_x_start + size.tiles.target.w + 1
+    var index_x_max = index_x_start + size.tiles.target.w + 1;
 
     current_level.level.forEach(function (linecontent, index_y) {
             index_y += line_offset_y;
             for (var index_x = index_x_start; index_x < index_x_max; index_x++) {
                 var object = getLevelObject(linecontent.charAt(index_x), index_x, index_y);
                 if (object) {
-                    object.x = index_x * size.tile.target.w - offset_x
-                    object.y = index_y * size.tile.target.h
+                    object.x = index_x * size.tile.target.w - offset_x;
+                    object.y = index_y * size.tile.target.h;
 
                     // workaround failed local image load
                     if (object.sprite.src){
