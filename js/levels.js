@@ -123,7 +123,7 @@ var levels = [
          "                             ?????                      xxxxxxx                               xxxxxxxxxxxxxx                      ",
          "        ^        ~                                    xxxxxxxxxxx                            xxxxxxxxxxxxxxx                 ?????",
          "       /ü`                                          xxxxxxxxxxxxxxx                        xxxxxxxxxxxxxxxxxxxxxxx                ",
-         "x     /ügü`          p     p         p             xxxxxxxxxxxxxxxxxxx                    xxxxxxxxxxxxxxxxxxx                      x",
+         "x     /ügü`          p     p         p             xxxxxxxxxxxxxxxxxxx                    xxxxxxxxxxxxxxxxxxx                     x",
          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 
         ]

@@ -21,7 +21,12 @@ var scroll_x_start = 0;
 // 5 free lines on top, 13 lines of level content
 var line_offset_y = 5;
 
-var held = {left:false, right:false, up:false, down:false};
+var held = {
+    left:false,
+    right:false,
+    up:false,
+    down:false
+};
 var collisionMap;
 
 // fps measurement
@@ -42,12 +47,12 @@ var speed = {
         speed_limit_y:25
     },
     fps:30
-}
+};
 
 // size details
 var size = {
     tile:{ // size of tiles
-        source:{w:16, h:16},
+        source:{w:64, h:64},
         target:{w:32, h:32}
     },
     tiles:{ // number of tiles
